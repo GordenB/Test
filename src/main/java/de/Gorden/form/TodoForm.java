@@ -1,15 +1,15 @@
-package de.Gorden.todo;
+package de.Gorden.form;
 
 import java.util.Date;
 
-public class Todo {
+public class TodoForm {
 	private int id;
 	private String user;
 	private String desc;
 	private Date tagetDate;
 	private boolean isDone;
 
-	public Todo(int id, String user, String desc, Date tagetDate, boolean isDone) {
+	public TodoForm(int id, String user, String desc, Date tagetDate, boolean isDone) {
 		this.id = id;
 		this.user = user;
 		this.desc = desc;
@@ -37,7 +37,7 @@ public class Todo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Todo other = (Todo) obj;
+		TodoForm other = (TodoForm) obj;
 		if (id != other.id)
 			return false;
 		return true;

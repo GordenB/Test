@@ -1,0 +1,20 @@
+<meta charset="UTF-8"> 
+<!DOCTYPE html>
+<html>
+<head>
+<title>MaxMinValue Abbey</title>
+</head>
+<body>
+<p th:text ="'Willkommen ' + ${username}"/>
+<form th:action="@{/maxMinIntInList}" th:object="${handleUserInput}" method="post">
+	<p th:if="${falscheEingabe}" class="error">Es wurde was falsches eingegeben</p>
+    Array mit Ganzzahlen:
+    <input type="text" name="zahlen"/>
+    <input type="submit" name="abgeben"/>
+    </form>
+<p th:text ="'Array: ' + ${Array}"/>
+<p th:text ="'kleinste Zahl im Ergebnis: ' + ${ergebnisMin}"/>
+<p th:text ="'größte Zahl im Ergebnis: ' + ${ergebnisMax}"/>
+<a th:href="@{/aufgabenseite}">Aufgabenseite</a>
+</body>
+</html>

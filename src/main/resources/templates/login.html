@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Login Page</title>
+<meta charset="UTF-8">
+<title>Login Seite</title>
 </head>
 <body>
-<p th:error="'Fehler ' + ${errorMessage} + '!'" />
-    <form action="/login" method="POST">
-        Name : <input name="name" type="text" /> Password : <input name="password" type="password" /> <input type="submit" name="Login"/>
-    </form>
+	<h1>Login Form</h1>
+	
+	<form th:action="@{/login}" th:object="${login}" method="post">
+	<p th:if="${invalideCredentials}" class="error">Es wurden falsche Eingaben getätigt</p>
+	<label for="username">Username</label>
+	<input type="text" id="username" name="username" autofocus"autofocus"/>
+	
+	<label for="password">Password</label>
+	<input type="password" id="password" name="password"/>
+	<br/>
+	<input type="submit" value="Log In"/>
+	
+	</form>
+
 </body>
 </html>
