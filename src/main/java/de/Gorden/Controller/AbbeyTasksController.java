@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AbbeyTasksController {
 
-	@RequestMapping (value="/abbeytasks", method=RequestMethod.GET)
+	@RequestMapping (value="/abbeyTasks", method=RequestMethod.GET)
 	public String showForm() {
 		// return http page name
-		return "abbeytasks";
+		return "abbeyTasks";
 	}
 }

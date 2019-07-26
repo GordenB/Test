@@ -1,4 +1,4 @@
-package de.Gorden.form;
+package de.Gorden.Form;
 
 public class LoginForm {
 	private String username;

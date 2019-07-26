@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <title>MaxMinValue Abbey</title>
 </head>
 <body>
-<p th:text ="'Willkommen ' + ${username}"/>
-<form th:action="@{/maxMinIntInList}" th:object="${handleUserInput}" method="post">
-	<p th:if="${falscheEingabe}" class="error">Es wurde was falsches eingegeben</p>
-    Array mit Ganzzahlen:
-    <input type="text" name="zahlen"/>
-    <input type="submit" name="abgeben"/>
-    </form>
-<p th:text ="'Array: ' + ${Array}"/>
-<p th:text ="'kleinste Zahl im Ergebnis: ' + ${ergebnisMin}"/>
-<p th:text ="'größte Zahl im Ergebnis: ' + ${ergebnisMax}"/>
-<a th:href="@{/abbeytasks}">Aufgabenseite</a>
+	<p th:text="'Willkommen ' + ${username}" />
+	<p th:text="'Hier kann eine Zahl eingegeben werden.'" />
+	<p th:text="'Es muss also mehrfach eine Zahl abgeschickt werden'" />
+	<p th:text="'Hierduch wird die Max & Min Zahl ermittelt'" />
+	<form th:action="@{/maxMinIntInList}" th:object="${handleUserInput}"
+		method="post">
+
+		<input type="text" name="number" /> <input type="submit"
+			value="absenden" />
+	</form>
+	<p th:if="${nullList}" class="error">
+		Es wurde keine korreckte Zahl eingegeben! </p>
+		<br>
+	<p th:text="'Im Array befinden sich diese Zahlen: ' + ${Array}" />
+	<p th:if="${Array}==null" class="error">Durch Fehleingabe wurde der Array gelöscht.
+	<p th:text="'kleinste Zahl im Ergebnis: ' + ${ergebnisMin}" />
+	<p th:text="'größte Zahl im Ergebnis: ' + ${ergebnisMax}" />
+
+	<br>
+	<a th:href="@{/abbeytasks}">Hier geht es zurück zur Aufgabenseite</a>
 </body>
 </html>

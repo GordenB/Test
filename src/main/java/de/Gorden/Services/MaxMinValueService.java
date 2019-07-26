@@ -4,37 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Service
 public class MaxMinValueService {
 
-	private List<Integer> zahlen = new ArrayList<>();
-	Model model;
+	private List<Integer> intList = new ArrayList<>();
+	
+	
+	public List<Integer> extractNumber(@ModelAttribute String number) {                
 
+	    if(number == null || number.isEmpty()) return null;
 
-	public List<Integer> addNum(@ModelAttribute String zahl) {
-		try
-		{	
-			int parseInt = Integer.parseInt(zahl);
-			zahlen.add(parseInt);
-		}
-		catch (NumberFormatException ex){
-			//model.addAttribute("falscheEingabe", true);
-			zahlen.add(0);
-			
-		}
-		finally {
-
-		}
-
-		return zahlen;
+	    StringBuilder sb = new StringBuilder();
+	    boolean found = false;
+	    for(char c : number.toCharArray()){
+	        if(Character.isDigit(c)){
+	            sb.append(c);
+	            found = true;
+	        } else if(found){
+	            // If we already found a digit before and this char is not a digit, stop looping
+	            break;                
+	        }
+	    }
+	    String strNum = sb.toString();
+	    int parseInt = Integer.parseInt(strNum);
+	    intList.add(parseInt);
+	    return intList;
+	    
 	}
+
+	
+	
 
 	public Integer getMaxInteger() {
 		int max = Integer.MIN_VALUE;
-		for( Integer i : zahlen ) {
+		for( Integer i : intList ) {
 			if(i > max) {
 				max = i;
 			}
@@ -43,7 +48,7 @@ public class MaxMinValueService {
 	}
 	public Integer getMinInteger() {
 		int min = Integer.MAX_VALUE;
-		for(Integer i : zahlen) {
+		for(Integer i : intList) {
 			if(i < min) {
 				min = i;
 			}

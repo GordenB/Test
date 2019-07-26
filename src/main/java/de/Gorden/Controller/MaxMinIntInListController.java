@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import de.Gorden.Services.MaxMinValueService;
 @SessionAttributes("username")
 @Controller
-public class MaxValueListController {
+public class MaxMinIntInListController {
 	
 	@Autowired
 	private MaxMinValueService service;
@@ -29,12 +29,17 @@ public class MaxValueListController {
 
 	
 	@RequestMapping (value = "/maxMinIntInList", method=RequestMethod.POST)
-	public String handleUserInput(ModelMap model, @RequestParam String zahlen) {
-		List<Integer> addNum = service.addNum(zahlen);
+	public String handleUserInput(ModelMap model, @RequestParam String number) {
+		List<Integer> answerList = service.extractNumber(number);
 		
-		model.put("Array", addNum);
+		model.put("Array", answerList);
 		model.put("ergebnisMin", service.getMinInteger());
 		model.put("ergebnisMax", service.getMaxInteger());
+		
+		if(answerList == null) {
+			model.addAttribute("nullList", true);
+		}
+		
 		return "maxMinIntInList";
 	}
 	
