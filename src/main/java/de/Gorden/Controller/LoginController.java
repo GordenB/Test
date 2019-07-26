@@ -15,13 +15,13 @@ public class LoginController {
 	
 	// to get login form page
 	@RequestMapping (value="/login", method=RequestMethod.GET)
-	public String getLoginForm() {
+	public String showLoginForm() {
 		// return http page name
 		return "login";
 	}
 	// checking for login credentials
 	@RequestMapping (value="/login", method=RequestMethod.POST)
-	public String login(@ModelAttribute(name="loginForm") LoginForm loginForm , Model model) {
+	public String processLogin(@ModelAttribute(name="loginForm") LoginForm loginForm , Model model) {
 		String username = loginForm.getUsername();
 		String password = loginForm.getPassword();
 		

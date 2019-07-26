@@ -1,7 +1,7 @@
-<meta charset="UTF-8"> 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<meta charset="UTF-8"> 
 <title>MaxMinValue Abbey</title>
 </head>
 <body>
@@ -15,6 +15,6 @@
 <p th:text ="'Array: ' + ${Array}"/>
 <p th:text ="'kleinste Zahl im Ergebnis: ' + ${ergebnisMin}"/>
 <p th:text ="'größte Zahl im Ergebnis: ' + ${ergebnisMax}"/>
-<a th:href="@{/aufgabenseite}">Aufgabenseite</a>
+<a th:href="@{/abbeytasks}">Aufgabenseite</a>
 </body>
 </html>

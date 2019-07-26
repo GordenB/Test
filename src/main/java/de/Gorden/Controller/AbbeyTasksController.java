@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class AbbeyAufgabenController {
+public class AbbeyTasksController {
 
-	@RequestMapping (value="/aufgabenseite", method=RequestMethod.GET)
-	public String getLoginForm() {
+	@RequestMapping (value="/abbeytasks", method=RequestMethod.GET)
+	public String showForm() {
 		// return http page name
-		return "aufgabenseite";
+		return "abbeytasks";
 	}
 }
