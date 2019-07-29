@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SumOfDigit Abbey</title>
+</head>
+<body>
+	<h2>Hier werden 3 Zahlen entgegen genommen und aus ihrer Summe die kleinste Ziffer angezeigt und in einer(Liste) ausgegeben</h2>
+	<p th:text="'Willkommen ' + ${username}" />
+	<p th:text="'Hier kann pro Feld eine Zahl eingegeben werden.'" />
+	<p th:text="'Hierduch wird die kleinste Ziffer ermittelt'" />
+	<form th:action="@{/sumOfDigit}" th:object="${handleUserInput}"
+		method="post">
+
+	<input type="text" name="num" /> 
+	<input type="text" name="num2" />
+	<input type="text" name="num3" />
+	<input type="submit" value="absenden" />
+	</form>
+	<p th:if="${nullList}" class="error">
+		Es wurden keine korreckten Zahlen eingegeben! </p>
+		<br>
+	<p th:text="'Im Array befinden sich diese Zahlen: ' + ${Array}" />
+	<p th:if="${Array}==null" class="error">Durch Fehleingabe wurde der Array gelöscht.
+	<p th:text="'Ergebnis: ' + ${ergebnis}" />
+
+	<br>
+	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
+</body>
+</html>

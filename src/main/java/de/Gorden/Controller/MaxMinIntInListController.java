@@ -22,7 +22,7 @@ public class MaxMinIntInListController {
 	private MaxMinValueService service;
 	
 	@RequestMapping (value="/maxMinIntInList", method=RequestMethod.GET)
-	public String getLoginForm() {
+	public String showForm() {
 		// return http page name
 		return "maxMinIntInList";
 	}

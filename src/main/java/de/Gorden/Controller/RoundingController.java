@@ -25,10 +25,10 @@ public class RoundingController {
 	}
 	@RequestMapping (value = "/rounding", method=RequestMethod.POST)
 	public String handleUserInput(ModelMap model, @RequestParam String zahl1, String zahl2) {
-		List<Double> addNums = service.roundNums(zahl1, zahl2);
+		List<Double> list = service.roundNums(zahl1, zahl2);
 		
 		
-		model.put("Array", addNums);
+		model.put("Array", list);
 		model.put("ergebnis", service.getResults());
 		return "rounding";
 	}
