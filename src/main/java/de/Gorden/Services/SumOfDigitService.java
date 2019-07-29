@@ -16,12 +16,20 @@ public class SumOfDigitService {
 		return resultList;
 	}
 
-
+	// Wofür ist das?
 	private ModelMap model;
+	
+	// Für eine Berechnung innerhalb einer Methode ist hier eine Membervarliable notwendig?
+	// Das haben wir im Codereview anders gelernt.
 	private int remainder;
+	
+	// Das Ergebnis könnte auch lokaler definiert werden, dann bleibt dieser Service stateless. 
 	private String result = "0";
 	
 
+	// Die bennenung der Methode ist suboptimal
+	// Die Annotation @ModelAttribute macht hier nix. 
+	// Rechnen wir damit, dass die Summe von 3 Zahlen mehrere Strings ergibt? Wenn nein, ist hier der RÜckgabewert nicht richtig gewählt.
 	public List<String> extractNumbers (@ModelAttribute String num, String num2, String num3){
 		 if(num == null || num.isEmpty()) return null;
 		 if(num2 == null || num2.isEmpty()) return null;
@@ -31,6 +39,7 @@ public class SumOfDigitService {
 		 int b = Integer.parseInt(num);
 		 int c = Integer.parseInt(num);
 		 
+		 // Ist klar, was hier passiert?
 		 int digitsNum = a * b + c;
 		 
 		 while(digitsNum > 0) {
@@ -39,6 +48,7 @@ public class SumOfDigitService {
 			 result += remainder;
 		 }
 		 
+		 // Die Ausgabe ist nicht korrekt schätze ich.
 		 resultList.add(result);
 		 
 		return resultList;
