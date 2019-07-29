@@ -10,23 +10,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Service
 public class SumOfDigitService {
-	
-	private List<String> resultList = new ArrayList<>();
-	private String result = null;
-	public List<String> getResultList() {
-		return resultList;
-	}
-
-
-	private ModelMap model;
-	
-	
+			
 	
 
-	public int extractNumber (@ModelAttribute String num, String num2, String num3){
-		 if(num == null || num.isEmpty()) return (Integer) null;
-		 if(num2 == null || num2.isEmpty()) return (Integer) null;
-		 if(num3 == null || num3.isEmpty()) return (Integer) null;
+	public Integer extractNumber (String num, String num2, String num3)throws Exception  
+	
+{
+		 if(num == null || num.isEmpty()) return null ;
+		 if(num2 == null || num2.isEmpty()) return null;
+		 if(num3 == null || num3.isEmpty()) return null;
 		 
 		 int a = Integer.parseInt(num);
 		 int b = Integer.parseInt(num2);
@@ -34,20 +26,18 @@ public class SumOfDigitService {
 		 
 		 int digitsNum = a * b + c;
 		 
-		
-		 
+		 digitsNum = extractDigit(digitsNum);
 		return digitsNum;
 	}
-	public List<String> extractDigit(@ModelAttribute int digitsNum){
-		 
-		while(digitsNum < 0) {
-			 this.result += digitsNum % 10;
+	private int extractDigit( int digitsNum){
+		
+		 int result = 0;
+		while(digitsNum > 0) {
+			 result += digitsNum % 10;
 			 digitsNum /= 10;
 			 
 		 }
-		 resultList.clear();
-		 resultList.add(result);
 		
-		 return resultList;
+		 return result;
 	}
 }

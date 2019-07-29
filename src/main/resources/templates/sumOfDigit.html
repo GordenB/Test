@@ -11,17 +11,23 @@
 	<p th:text="'Hierduch wird die kleinste Ziffer ermittelt'" />
 	<form th:action="@{/sumOfDigit}" th:object="${handleUserInput}"
 		method="post">
-
+	<label for="num">Textfeld 1</label>
 	<input type="text" name="num" value="11"/> 
+	<br><br>
+	<label for="num2">Textfeld 2</label>
 	<input type="text" name="num2" value="9"/>
+	<br><br>
+	<label for="num3">Textfeld 3</label>
 	<input type="text" name="num3" value="1"/>
+	<br><br>
 	<input type="submit" value="absenden" />
+	<p th:if="${invalideValue}" class="error">Es wurden falsche Eingaben getätigt</p>
+	
 	</form>
-	<p th:if="${nullList}" class="error">
-		Es wurden keine korreckten Zahlen eingegeben! </p>
+	
 		<br>
-	<p th:text="'Im Array befinden sich diese Zahlen: ' + ${Array}" />
-	<p th:if="${Array}==null" class="error">Durch Fehleingabe wurde der Array gelöscht.
+	
+	
 	<p th:text="'Ergebnis: ' + ${ergebnis}" />
 
 	<br>
