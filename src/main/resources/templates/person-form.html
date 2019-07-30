@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Person Registration Form</title>
+<style>
+	.error {color:red}
+</style>
+</head>
+
+<body>
+<h1>Person Regestrierungs Form</h1>
+
+<i>Füllen Sie bitte das Formular aus. Asterisk (*) bedeutet notwendige Angaben.</i>
+
+<br><br>
+
+<form th:action="processForm" modelAttribute="person" >
+
+<label for="firstName">Vorname: </label>
+<input type="text" id="firstName" value="Hermann" autofocus"autofocus"/>
+
+<br><br>	
+
+<label for="lastName">Nachname: </label>
+<input type="text" id="lastName" value="Winkel" />
+
+<br><br>
+
+Country:
+
+<br><br>
+Favorite Language:
+<ul>
+Java<input type="radio" id="Java" value="Java" />
+C#<input type="radio" id="C#" value="C#" />
+PHP<input type="radio" id="PHP" value="PHP" />
+Ruby<input type="radio" id="Ruby" value="Ruby" />
+</ul>
+
+<br><br>
+		
+Operating Systems:
+<ul>
+Linux<input type="checkbox" id="Linux" value="Linux" />		
+Mac OS<input type="checkbox" id="Mac OS" value="Mac OS" />		
+MS WIndows<input type="checkbox" id="MS Window" value="MS Window" />		
+</ul>
+
+
+
+
+<br><br>
+
+		<input type="submit" value="Submit" />
+</form:form>
+
+</body>
+
+</html>
+

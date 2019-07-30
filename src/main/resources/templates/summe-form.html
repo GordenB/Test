@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Summe Abbey</title>
+</head>
+<body>
+	<i> Hier wird die maximale und minimale Zahl aus einem Array(Liste) ausgegeben</i>
+	<p th:text="'Willkommen ' + ${username}" />
+	<form th:action="@{/processForm}" modelAttribute="issue" >
+	Feld 1	<input type="text" name="fieldOne" />
+		<br>
+	Feld 2 <input type="text" name="fieldTwo" />
+		<br>
+		<input type="submit" value="absenden" />
+	</form>
+	
+	<p th:text="'Ergebnis ' + ${ergebnis}" />
+
+	<br>
+	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
+</body>
+</html>
