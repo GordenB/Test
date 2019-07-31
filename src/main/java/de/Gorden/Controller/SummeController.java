@@ -2,37 +2,44 @@ package de.Gorden.Controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.Gorden.Form.Issue;
+import de.Gorden.Services.SummeService;
 
-
+@SessionAttributes("username")
 @Controller
-@RequestMapping(value="/summe", method=RequestMethod.GET)
 public class SummeController {
 	
-	@RequestMapping("/showForm")
-	public String showForm(Model theModel) {
+	@Autowired
+	private SummeService service;
+	
+	@RequestMapping(value="/summe-form", method=RequestMethod.GET)
+	public String showSumForm(Model theModel) {
 		theModel.addAttribute("issue", new Issue());
 		return "summe-form";
 	}
 	
-	@RequestMapping(value="/processForm", method=RequestMethod.POST)
+	@RequestMapping(value="/summe-form", method=RequestMethod.POST)
 	public String processForm(
 			@Valid @ModelAttribute("issue") Issue theIssue,
-			BindingResult theBindingResult) {
+			BindingResult theBindingResult, Model theModel) {
+		
 		if(theBindingResult.hasErrors()) {
 			
 			return "summe-form";
 		}else {
-			Integer ergebnis = theIssue.getErgebnis();
+			Integer result = service.summieren(theIssue.getFieldOne(), theIssue.getFieldTwo());
+			theModel.addAttribute("ergebnis", result);
 			
-			return "summe-result";
+			return "summe-form";
 		}
 		
 	}

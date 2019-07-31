@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Summe Abbey</title>
+<style>
+	.error {color:red}
+</style>
 </head>
 <body>
-	<i> Hier wird die maximale und minimale Zahl aus einem Array(Liste) ausgegeben</i>
+	<h1 th:text="'Summieren'" ></h1>
+	<i> Hier werden zwei zahlen summiert</i>
 	<p th:text="'Willkommen ' + ${username}" />
-	<form th:action="@{/processForm}" modelAttribute="issue" >
+	<form th:action="@{/summe-form}" th:object="${issue}" method="post">
+
 	Feld 1	<input type="text" name="fieldOne" />
-		<br>
+	<p th:if="${#fields.hasErrors('fieldOne')}" th:errors="*{fieldOne}">Name Error</p>
+
+	
+		<br><br>
 	Feld 2 <input type="text" name="fieldTwo" />
 		<br>
 		<input type="submit" value="absenden" />
 	</form>
+	
 	
 	<p th:text="'Ergebnis ' + ${ergebnis}" />
 
@@ -21,3 +30,5 @@
 	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
 </body>
 </html>
+
+	
