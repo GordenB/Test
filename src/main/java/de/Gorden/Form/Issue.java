@@ -1,9 +1,19 @@
 package de.Gorden.Form;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class Issue {
 
+	@NotNull
+	@Min(value=-2147483648)
+	@Max(value=2147483647)
 	private Integer fieldOne;
+	
+	@NotNull
+	@Min(value=-2147483648)
+	@Max(value=2147483647)
 	private Integer fieldTwo;
 	
 	private Integer ergebnis;
