@@ -12,13 +12,12 @@ public class MaxMinValueService {
 	private List<Integer> intList = new ArrayList<>();
 	
 	
-	public List<Integer> extractNumber(@ModelAttribute String number) {                
+	public List<Integer> extractNumber(String fieldOne) {                
 
-	    if(number == null || number.isEmpty()) return null;
 
 	    StringBuilder sb = new StringBuilder();
 	    boolean found = false;
-	    for(char c : number.toCharArray()){
+	    for(char c : fieldOne.toCharArray()){
 	        if(Character.isDigit(c)){
 	            sb.append(c);
 	            found = true;

@@ -5,7 +5,6 @@ public class LoginForm {
 	private String password;
 	
 	public LoginForm() {
-		super();
 	}
 
 	public String getUsername() {

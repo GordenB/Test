@@ -4,32 +4,23 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class SumTwoFieldsForm {
+public class MaxMinInListForm {
 
 	@NotNull
 	@Min(value=-2147483648)
 	@Max(value=2147483647)
-	private Integer fieldOne;
+	private String fieldOne;
 	
-	@NotNull
-	@Min(value=-2147483648)
-	@Max(value=2147483647)
-	private Integer fieldTwo;
 	
 	private Integer ergebnis;
 	
-	public Integer getFieldOne() {
+	public String getFieldOne() {
 		return fieldOne;
 	}
-	public void setFieldOne(Integer fieldOne) {
+	public void setFieldOne(String fieldOne) {
 		this.fieldOne = fieldOne;
 	}
-	public Integer getFieldTwo() {
-		return fieldTwo;
-	}
-	public void setFieldTwo(Integer fieldTwo) {
-		this.fieldTwo = fieldTwo;
-	}
+	
 	public Integer getErgebnis() {
 		return ergebnis;
 	}

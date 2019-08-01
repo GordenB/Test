@@ -2,29 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>MaxMinValue Abbey</title>
+<title>Minimaler und Maximaler Wert Abbey</title>
+<style>
+	.error {color:red}
+</style>
 </head>
 <body>
-	<h2>Hier wird die maximale und minimale Zahl aus einem Array(Liste) ausgegeben</h2>
+	<h1 th:text="'Minimaler und Maximaler Wert von Zahlen'" ></h1>
+	<i> Hier werden Zahlen eingegeben, diese werden in einer Liste gespeichert und extreme ermittelt.</i>
 	<p th:text="'Willkommen ' + ${username}" />
-	<p th:text="'Hier kann eine Zahl eingegeben werden.'" />
-	<p th:text="'Es muss also mehrfach eine Zahl abgeschickt werden'" />
-	<p th:text="'Hierduch wird die Max & Min Zahl ermittelt'" />
-	<form th:action="@{/maxMinIntInList}" th:object="${handleUserInput}"
-		method="post">
-
-		<input type="text" name="number" /> <input type="submit"
-			value="absenden" />
-	</form>
-	<p th:if="${nullList}" class="error">
-		Es wurde keine korreckte Zahl eingegeben! </p>
-		<br>
-	<p th:text="'Im Array befinden sich diese Zahlen: ' + ${Array}" />
-	<p th:if="${Array}==null" class="error">Durch Fehleingabe wurde der Array gelöscht.
-	<p th:text="'kleinste Zahl im Ergebnis: ' + ${ergebnisMin}" />
-	<p th:text="'größte Zahl im Ergebnis: ' + ${ergebnisMax}" />
-
+	<form th:action="@{/maxMinIntInList-form}" th:object="${issue}" method="post">
+	<table>
+	<tr>
+	<td>Eingabefeld:</td>
+	<td><input type="text" th:field="*{fieldOne}" /></td>
+	<td th:if="${#fields.hasErrors('fieldOne')}" th:errors="*{fieldOne}">Name Error</td>
+	</tr>
+	<tr>
+	<td><button type="submit">abschicken</button></td>
+	</tr>
+	</table>
+	<br>
+	<table>
+	<tr>
+	<td th:text="'Im Array befinden sich diese Zahlen: ' + ${Array}" ></td>
+	</tr>
+	<tr>
+	<td th:text="'kleinste Zahl im Ergebnis: ' + ${resultMin}" ></td>
+	</tr>
+	<tr>
+	<td th:text="'größte Zahl im Ergebnis: ' + ${resultMax}" ></td>
+	</tr>
+	
+	</table>
 	<br>
 	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
+</form>
+	
+
+	
 </body>
 </html>
+
+	
