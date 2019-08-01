@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class WeightedSumService {
 
-	public Integer iterieren(Integer fieldOne) {
+	public Integer iterate(Integer fieldOne) {
 		ArrayList<Integer> digits = new ArrayList<>();
 		Integer digitsNum = fieldOne;
 		int result = 0;
