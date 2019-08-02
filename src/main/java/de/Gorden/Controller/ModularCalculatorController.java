@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import de.Gorden.Form.ModularCalculatorForm;
-import de.Gorden.Form.WeightedSumForm;
 import de.Gorden.Services.ModularCalculatorService;
-import de.Gorden.Services.WeightedSumService;
 
 @SessionAttributes("username")
 @Controller
@@ -39,7 +37,6 @@ public class ModularCalculatorController {
 		}else {
 			String[] size = service.splitInput(theIssue.getFieldOne());
 			int temp = service.calculate(size);
-			Integer result = service.getResult();
 			theModel.addAttribute("ergebnis", temp);
 			
 			return "modularCalculator";

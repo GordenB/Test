@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Durchschnitt eines Arrays Abbey</title>
+<style>
+	.error {color:red}
+</style>
+</head>
+<body>
+	<h1 th:text="'Durchschnitt eines Arrays'" ></h1>
+	<i> Hier werden Zahlen eingegeben, pro Zahl bitte für die Auswertung ein Leerzeichen eingeben. Auswertung: eingegebene Zahlen, der Durchschnitt.</i>
+	<p th:text="'Willkommen ' + ${username}" />
+	<form th:action="@{/averageOfArray}" th:object="${issue}" method="post">
+	<table>
+	<tr>
+	<td>Feld 1:</td>
+	<td><input type="text" th:field="*{fieldOne}" /></td>
+	<td th:if="${#fields.hasErrors('fieldOne')}" th:errors="*{fieldOne}">Name Error</td>
+	</tr>
+	<tr>
+	<td><button type="submit">abschicken</button></td>
+	</tr>
+	</table>
+</form>
+	
+	<p th:text="'eingegebene Zahlen: ' + ${numCount}" />
+	<p th:text="'Durchschnitt: ' + ${result}" />
+
+	<br>
+	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
+</body>
+</html>
+
+	
