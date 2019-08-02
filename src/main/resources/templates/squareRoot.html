@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Quadratwurzel Abbey</title>
+<style>
+	.error {color:red}
+</style>
+</head>
+<body>
+	<h1 th:text="'Quadratwurzel einer Zahl'" ></h1>
+	<i> Hier wird eine Zahl eingegeben, ein Leerzeichen gelassen und die Anzahl der Calculationen angegeben. Auswertung: Anzahl Kalkulationen, Quadratwurzel.</i>
+	<p th:text="'Willkommen ' + ${username}" />
+	<form th:action="@{/squareRoot}" th:object="${issue}" method="post">
+	<table>
+	<tr>
+	<td>Feld 1:</td>
+	<td><input type="text" th:field="*{fieldOne}" /></td>
+	<td th:if="${#fields.hasErrors('fieldOne')}" th:errors="*{fieldOne}">Name Error</td>
+	</tr>
+	<tr>
+	<td><button type="submit">abschicken</button></td>
+	</tr>
+	</table>
+</form>
+	
+	<p th:text="'eingegebene Calculationen: ' + ${calcs}" />
+	<p th:text="'Quardratwurzel: ' + ${result}" />
+
+	<br>
+	<a th:href="@{/abbeyTasks}">Hier geht es zurück zur Aufgabenseite</a>
+</body>
+</html>
+
+	
