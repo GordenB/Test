@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.com">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- include css in the header -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+<title>Lass das Design auf Dich wirken</title>
 </head>
 <body>
-<h1>=======================</h1>
-<h1>Hier ist die Startseite</h1>
-<h1>=======================</h1>
-<p th:text="'Willkommen ' + ${username} + '.'"/>
-<br/>
-<a th:href="@{/abbeyTasks}">Abbey Aufgabenseite</a>
-<br/>
-<a th:href="@{/list-todos}">ToDo Liste</a>
-<br/>
-<a th:href="@{/person/showForm}">Person Regestrieren</a>
-<br/>
-<a th:href="@{/}">Index</a>
+
+	<div class="container">
+		<h1>
+			<!-- include image from static resources -->
+			<img th:src="@{/img/Logo.png}" alt="memorynotfound logo" />
+			Lass das Design auf Dich wirken 
+		</h1>
+	</div>
+
+	<div class="container">
+		<h1>=========================</h1>
+		<h1>Hier ist die Startseite</h1>
+		<h1>=========================</h1>
+		<p th:text="'Willkommen ' + ${username} + '.'" />
+		<br>
+		<a th:href="@{/abbeyTasks}">Abbey Aufgabenseite</a>
+		<br>
+		<a th:href="@{/list-todos}">ToDo Liste</a>
+		<br>
+		<a th:href="@{/person/showForm}">Personen Regestrieren</a>
+		<br>
+		<a th:href="@{/}">Index</a> <br>
+	</div>
+
+	<!-- include javascript in the footer -->
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/lib.js}"></script>
+
+
 </body>
 </html>
