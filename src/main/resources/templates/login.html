@@ -2,22 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
 <title>Login Seite</title>
 </head>
 <body>
-	<h1>Login Form</h1>
-	
-	<form th:action="@{/login}" th:object="${login}" method="post">
-	<p th:if="${invalideCredentials}" class="error">Es wurden falsche Eingaben getätigt</p>
-	<label for="username">Username</label>
-	<input type="text" id="username" name="username" value="Hermann" autofocus="autofocus" />
-	
-	<label for="password">Password</label>
-	<input type="password" id="password" name="password"/>
-	<br>
-	<input type="submit" value="Log In"/>
-	
-	</form>
+	<div class="container">
+
+		<h1>Login</h1>
+
+		<form th:action="@{/login}" th:object="${login}" method="post">
+			<p th:if="${invalideCredentials}" class="error">Es wurden falsche
+				Eingaben getätigt</p>
+			<label for="username">Username</label> <input type="text"
+				id="username" name="username" value="Hermann" autofocus="autofocus" />
+
+			<label for="password">Password</label> <input type="password"
+				id="password" name="password" /> 
+				
+			<br> 
+			
+			<input type="submit" value="Log In" />
+
+		</form>
+
+
+
+
+	</div>
+
 
 </body>
 </html>
