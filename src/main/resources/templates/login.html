@@ -3,34 +3,46 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 
 <title>Login Seite</title>
 </head>
 <body>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Comline Login</h1>
+		</div>
+	</div>
+
 	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="background-color: beige">
+				<h1>Spring Framework</h1>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<img th:src="@{img/ComlineLogo2.png}">
 
-		<h1>Login</h1>
+			<form th:action="@{/login}" th:object="${login}" method="post">
+				<p th:if="${invalideCredentials}" class="error">Es wurden
+					falsche Eingaben getätigt</p>
+				<label for="username">Username</label> <input type="text"
+					id="username" name="username" value="Hermann" autofocus="autofocus" />
 
-		<form th:action="@{/login}" th:object="${login}" method="post">
-			<p th:if="${invalideCredentials}" class="error">Es wurden falsche
-				Eingaben getätigt</p>
-			<label for="username">Username</label> <input type="text"
-				id="username" name="username" value="Hermann" autofocus="autofocus" />
+				<label for="password">Password</label> <input type="password"
+					id="password" name="password" /> <br>
 
-			<label for="password">Password</label> <input type="password"
-				id="password" name="password" /> 
-				
-			<br> 
-			
+			</form>
+
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-offset-6 col-md-4">
 			<input type="submit" value="Log In" />
-
-		</form>
-
-
-
-
+		</div>
 	</div>
 
 
